@@ -1,0 +1,14 @@
+﻿  GameObject.cpp
+C:\Users\valen\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.cpp(13,38): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\valen\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.cpp(13,31): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+  main.cpp
+  Génération de code en cours...
+  sfmlApp.vcxproj -> C:\Users\valen\Documents\GitHub\SFML-BRIQUE\x64\Debug\sfmlApp.exe

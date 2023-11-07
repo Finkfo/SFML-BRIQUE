@@ -1,10 +1,11 @@
 #include <SFML/Graphics.hpp>
+#include "GameObject.h"
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Red);
+    sf::RenderWindow window(sf::VideoMode(1280, 720), "SFML works!");
+
+    GameObject rect(0.0f, 0.0f, 0.2f, 0.0f, 100, 100, sf::Color::Red);
 
     while (window.isOpen())
     {
@@ -14,12 +15,14 @@ int main()
             if (event.type == sf::Event::Closed)
                 window.close();
         }
+        
+        // Déplace le rectangle en diagonale
+        rect.Move();
 
         window.clear();
-        window.draw(shape);
+        window.draw(rect.GetRender());
         window.display();
     }
-    //oui
 
     return 0;
 }
