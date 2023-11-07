@@ -6,21 +6,27 @@
 
 class GameObject
 {
-public:
-	GameObject(float x,float y, float speedX, float speedY, int width, int height, sf::Color color);
-	~GameObject();
-
-	sf::RectangleShape GetRender();
-	
-	void Move();
-
 private:
 	float x;
 	float y;
 	float speedX;
 	float speedY;
-	int width;
-	int height;
+	float width;
+	float height;
+	float size;
+	float orientation = 0;
 	sf::Color color;
-	sf::RectangleShape graphic;
+	sf::Shape* graphic;
+
+public:
+	GameObject(float x,float y, float speedX, float speedY, float width, float height, sf::Color color);
+	GameObject(float x, float y, float speedX, float speedY, float size, sf::Color color);
+
+	~GameObject();
+
+	sf::Shape*  GetRender();
+	
+	void Move(float fDeltaTime);
+	void Rotate(float angle, float fDeltaTime);
+	void setRotation(float angle);
 };
