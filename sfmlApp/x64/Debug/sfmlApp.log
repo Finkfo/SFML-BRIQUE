@@ -1,12 +1,14 @@
 ﻿  GameObject.cpp
-D:\sfmlApp\sfmlApp\GameObject.cpp(68,25): warning C4244: '=' : conversion de 'double' en '_Ty', perte possible de données
+D:\sfmlApp\sfmlApp\GameObject.cpp(70,25): warning C4244: '=' : conversion de 'double' en '_Ty', perte possible de données
           with
           [
               _Ty=float
           ]
-D:\sfmlApp\sfmlApp\GameObject.cpp(69,20): warning C4244: '=' : conversion de 'double' en '_Ty', perte possible de données
+D:\sfmlApp\sfmlApp\GameObject.cpp(71,20): warning C4244: '=' : conversion de 'double' en '_Ty', perte possible de données
           with
           [
               _Ty=float
           ]
+  main.cpp
+  Génération de code en cours...
   sfmlApp.vcxproj -> D:\sfmlApp\x64\Debug\sfmlApp.exe

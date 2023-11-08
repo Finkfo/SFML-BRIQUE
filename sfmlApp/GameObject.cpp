@@ -61,10 +61,9 @@ void GameObject::Rotate(float deltaTime)
 	graphic->setRotation(orientation);
 }
 
-void GameObject::SetRotation(float angle, float fRatioX = 1/2.f, float fRatioY = 1/2.f)
+void GameObject::SetRotation(float angle/*, float fRatioX = 1 / 2.f, float fRatioY = 1 / 2.f*/)
 {
-
-	graphic->setOrigin(fRatioX * width, fRatioY * height);
+	//graphic->setOrigin(fRatioX * width, fRatioY * height);
 
 	orientation = angle;
 	graphic->setRotation(angle);

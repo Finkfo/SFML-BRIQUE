@@ -41,6 +41,12 @@ public:
 
 	sf::Shape* GetRender();
 
+	/*void SetX(float fX, float fRatioX = 0.f)
+	{
+		graphic->setOrigin(fRatioX * width, graphic->getOrigin().y);
+		graphic->setPosition();
+	}*/
+
 	void Move(float deltaTime);
 	void Rotate(float deltaTime);
 	void SetRotation(float angle);
