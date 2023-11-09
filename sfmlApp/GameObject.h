@@ -13,22 +13,21 @@
 class GameObject
 {
 private:
-	float x;
-	float y;
+	
+
 
 	float origineX;
 	float origineY;
 
 	float width;
 	float height;
-	float size;
-
 	float speed;
 	float angularSpeed;
 
 	float orientation = 0;
 
-	std::vector<float> direction = { 0,0 };
+	sf::Vector2f direction = { 0,0 };
+	//std::vector<float> direction = { 0,0 };
 
 	sf::Color color;
 	sf::Shape* graphic;
@@ -41,18 +40,16 @@ public:
 
 	sf::Shape* GetRender();
 
-	/*void SetX(float fX, float fRatioX = 0.f)
-	{
-		graphic->setOrigin(fRatioX * width, graphic->getOrigin().y);
-		graphic->setPosition();
-	}*/
+	
 
 	void Move(float deltaTime);
 	void Rotate(float deltaTime);
 	void SetRotation(float angle);
-	void DownBounce();
-	void UpBounce();
-	void RightBounce();
-	void LeftBounce();
+	void HorizontalBounce();
+	void VerticaltBounce();
 	void Reset();
 };
+
+/*Calcul angle canon = angle entre vecteur x(1,0) et vecteur souris = (xsouris-xcanon,ysouris-ycanon)
+* angle entre vecteur = acos(<u°v>/(module(u)*module(v)))
+*/

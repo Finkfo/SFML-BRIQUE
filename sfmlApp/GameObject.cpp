@@ -2,20 +2,19 @@
 
 GameObject::GameObject(float x, float y, float width, float height,float orientation, float speed, float angularSpeed, sf::Color color)
 {
-	this->x = x;
-	this->y = y;
 	this->origineX = x;
 	this->origineY = y;
-	this->speed = speed;
-	this->angularSpeed = angularSpeed;
 	this->width = width;
 	this->height = height;
 	this->orientation = orientation;
+	this->speed = speed;
+	this->angularSpeed = angularSpeed;
 	this->color = color;
 
 
 	graphic = new sf::RectangleShape(sf::Vector2f(width, height));
 	graphic->setOrigin(0.5 * width, 0.5 * height);
+	//std::cout << graphic->getOrigin().x << "; " << graphic->getOrigin().y << std::endl;
 	graphic->setPosition(x, y);
 	graphic->setFillColor(color);
 	SetRotation(orientation);
@@ -23,18 +22,19 @@ GameObject::GameObject(float x, float y, float width, float height,float orienta
 }
 
 GameObject::GameObject(float x, float y, float size, float orientation, float speed, float angularSpeed, sf::Color color){
-	this->x = x - size;
-	this->y = y - size;
+
 	this->origineX = x;
 	this->origineY = y;
+	this->width = size / 2;
+	this->height = size / 2;
+	this->orientation = orientation;
 	this->speed = speed;
 	this->angularSpeed = angularSpeed;
-	this->size = size;
-	this->orientation = orientation;
 	this->color = color;
 
-	graphic = new sf::CircleShape(size);
-	graphic->setOrigin(0.5 * size, 0.5 * size);
+	graphic = new sf::CircleShape(width);
+	graphic->setOrigin(width, height);
+	//std::cout << graphic->getOrigin().x << "; " << graphic->getOrigin().y << std::endl;
 	graphic->setPosition(x, y);
 	graphic->setFillColor(color);
 	SetRotation(orientation);
@@ -52,8 +52,9 @@ sf::Shape* GameObject::GetRender()
 
 void GameObject::Move(float deltaTime)
 {
-	x += direction[0] * deltaTime * speed;
-	y += direction[1] * deltaTime * speed;
+	float x = graphic->getPosition().x + direction.x * deltaTime * speed;
+	float y = graphic->getPosition().y + direction.y * deltaTime * speed;
+
 	graphic->setPosition(x, y);
 }
 
@@ -69,31 +70,21 @@ void GameObject::SetRotation(float angle/*, float fRatioX = 1 / 2.f, float fRati
 
 	orientation = angle;
 	graphic->setRotation(angle);
-	direction[0] = std::sin(orientation * (M_PI / 180));
-	direction[1] = -1 * std::cos(orientation * (M_PI / 180));
-	std::cout << direction[0] << "; " << direction[1] << std::endl;
+	direction.x = std::sin(orientation * (M_PI / 180));
+	direction.y = -1 * std::cos(orientation * (M_PI / 180));
+	std::cout << direction.x << "; " << direction.y << std::endl;
 }
 
 void GameObject::Reset()
 {
-	x = origineX;
-	y = origineY;
+	graphic->setPosition(origineX, origineY);
 }
 
 //changer le nom car pas assez comprehensible ou alors placer contenu dans SetRotation
-void GameObject::DownBounce() {
+void GameObject::HorizontalBounce() {
 	SetRotation(180 - orientation);
 
 }
-void GameObject::UpBounce() {
-	SetRotation(180 - orientation);
-
-}
-void GameObject::LeftBounce() {
+void GameObject::VerticaltBounce() {
 	SetRotation(0 - orientation);
-
-}
-void GameObject::RightBounce() {
-	SetRotation(0 - orientation);
-
 }

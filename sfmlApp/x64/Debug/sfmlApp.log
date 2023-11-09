@@ -1,16 +1,16 @@
 ﻿  GameObject.cpp
-D:\sfmlApp\sfmlApp\GameObject.cpp(18,38): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
-D:\sfmlApp\sfmlApp\GameObject.cpp(18,25): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
-D:\sfmlApp\sfmlApp\GameObject.cpp(37,37): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
-D:\sfmlApp\sfmlApp\GameObject.cpp(37,25): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
-D:\sfmlApp\sfmlApp\GameObject.cpp(72,25): warning C4244: '=' : conversion de 'double' en '_Ty', perte possible de données
+C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.cpp(16,38): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.cpp(16,25): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.cpp(73,24): warning C4244: '=' : conversion de 'double' en 'T', perte possible de données
           with
           [
-              _Ty=float
+              T=float
           ]
-D:\sfmlApp\sfmlApp\GameObject.cpp(73,20): warning C4244: '=' : conversion de 'double' en '_Ty', perte possible de données
+C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.cpp(74,19): warning C4244: '=' : conversion de 'double' en 'T', perte possible de données
           with
           [
-              _Ty=float
+              T=float
           ]
-  sfmlApp.vcxproj -> D:\sfmlApp\x64\Debug\sfmlApp.exe
+  main.cpp
+  Génération de code en cours...
+  sfmlApp.vcxproj -> C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\x64\Debug\sfmlApp.exe
