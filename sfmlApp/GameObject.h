@@ -12,9 +12,28 @@
 
 class GameObject
 {
-private:
-	
+public:
 
+	typedef struct RectDesc
+	{
+		float x;
+		float y;
+		float w;
+		float h;
+		float orientation = 0;
+		float speed = 0;
+		float angularSpeed = 0;
+		sf::Color color = sf::Color::Red;
+	};
+
+	typedef struct CircleDesc 
+	{
+		float x;
+		float y;
+		float r;
+	};
+
+private:
 
 	float origineX;
 	float origineY;
@@ -27,15 +46,30 @@ private:
 	float orientation = 0;
 
 	sf::Vector2f direction = { 0,0 };
-	//std::vector<float> direction = { 0,0 };
 
 	sf::Color color;
 	sf::Shape* graphic;
 
-
+	//std::vector<int> a = { (0,0,0) };
+	GameObject(float x, float y, float width, float height, float orientation, float speed, float angularSpeed = 0, sf::Color color = sf::Color::Red);
+	GameObject(float x, float y, float size, float orientation, float speed, float angularSpeed = 0, sf::Color color = sf::Color::Blue);
 public:
-	GameObject(float x, float y, float width, float height, float orientation, float speed, float angularSpeed, sf::Color color);
-	GameObject(float x, float y, float size, float orientation, float speed, float angularSpeed, sf::Color color);
+
+	typedef struct CircleDesc
+	{
+		float x = 0;
+		float y = 0;
+		float r;
+	};
+
+	typedef struct RectDesc
+	{
+		float x;
+		float y;
+		float w;
+		float h;
+	};
+
 	~GameObject();
 
 	sf::Shape* GetRender();

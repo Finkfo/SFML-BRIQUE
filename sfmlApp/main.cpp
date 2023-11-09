@@ -8,13 +8,19 @@ int main()
 {
     sf::RenderWindow window(sf::VideoMode(1280, 720), "SFML works!");
 
-    GameObject brique(600, 500, 100, 100, 0, 0, 0, sf::Color::Red);
-    GameObject ball(600, 500, 100, 70, 50, 0, sf::Color::Blue);
+    GameObject::CircleDesc oDesc;
+    oDesc.r = 10
+    GameObject(CircleDesc)
+
+    GameObject brick(600, 500, 100, 100, 0, 0, 50);
+    GameObject ball(600, 500, 100, 70, 50, 0, sf::Color::Red);
 
     /*GameObject up(600, 350, 100, 100, 0, 50, 0, sf::Color::Red);
     GameObject right(600, 350, 100, 100, 90, 50, 0, sf::Color::Blue);
     GameObject down(600, 350, 100, 100, 180, 50, 0, sf::Color::Green);
     GameObject left(600, 350, 100, 100, 270, 50, 0, sf::Color::Magenta);*/
+
+    GameObjectGameObject::CreateCircle();
 
     sf::Clock clock;
     float deltaTime=0;
@@ -31,25 +37,25 @@ int main()
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
                 //up.Reset();
                 ball.HorizontalBounce();
-                brique.HorizontalBounce();
+                brick.HorizontalBounce();
             }
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
                 //right.Reset();
                 ball.VerticaltBounce();
-                brique.VerticaltBounce();
+                brick.VerticaltBounce();
             }
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
                 //down.Reset();
                 ball.HorizontalBounce();
-                brique.HorizontalBounce();
+                brick.HorizontalBounce();
             }
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
                 //left.Reset();
                 ball.VerticaltBounce();
-                brique.VerticaltBounce();
+                brick.VerticaltBounce();
             }
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
-                brique.Reset();
+                brick.Reset();
                 ball.Reset();
 
                 /*up.Reset();
@@ -61,7 +67,7 @@ int main()
 
         //Applique le mouvement angulaire
         ball.Rotate(deltaTime);
-        brique.Rotate(deltaTime);
+        brick.Rotate(deltaTime);
         /*up.Rotate(deltaTime);
         right.Rotate(deltaTime);
         down.Rotate(deltaTime);
@@ -69,7 +75,7 @@ int main()
 
         //Applique le déplacement
         ball.Move(deltaTime);
-        brique.Move(deltaTime);
+        brick.Move(deltaTime);
 
         /*up.Move(deltaTime);
         right.Move(deltaTime);
@@ -79,7 +85,7 @@ int main()
         //Affichage
         window.clear();
         window.draw(*ball.GetRender());
-        window.draw(*brique.GetRender());
+        window.draw(*brick.GetRender());
 
        /*window.draw(*up.GetRender());
         window.draw(*right.GetRender());
