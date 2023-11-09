@@ -50,6 +50,9 @@ public:
 	void Move(float deltaTime);
 	void Rotate(float deltaTime);
 	void SetRotation(float angle);
+	void DownBounce();
+	void UpBounce();
+	void RightBounce();
+	void LeftBounce();
 	void Reset();
-	void dirVect();
 };

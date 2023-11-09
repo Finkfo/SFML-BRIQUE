@@ -2,8 +2,8 @@
 
 GameObject::GameObject(float x, float y, float width, float height,float orientation, float speed, float angularSpeed, sf::Color color)
 {
-	this->x = x-width/2;
-	this->y = y-height/2;
+	this->x = x;
+	this->y = y;
 	this->origineX = x;
 	this->origineY = y;
 	this->speed = speed;
@@ -15,6 +15,7 @@ GameObject::GameObject(float x, float y, float width, float height,float orienta
 
 
 	graphic = new sf::RectangleShape(sf::Vector2f(width, height));
+	graphic->setOrigin(0.5 * width, 0.5 * height);
 	graphic->setPosition(x, y);
 	graphic->setFillColor(color);
 	SetRotation(orientation);
@@ -33,6 +34,7 @@ GameObject::GameObject(float x, float y, float size, float orientation, float sp
 	this->color = color;
 
 	graphic = new sf::CircleShape(size);
+	graphic->setOrigin(0.5 * size, 0.5 * size);
 	graphic->setPosition(x, y);
 	graphic->setFillColor(color);
 	SetRotation(orientation);
@@ -79,6 +81,19 @@ void GameObject::Reset()
 }
 
 //changer le nom car pas assez comprehensible ou alors placer contenu dans SetRotation
-void GameObject::dirVect() {
-	
+void GameObject::DownBounce() {
+	SetRotation(180 - orientation);
+
+}
+void GameObject::UpBounce() {
+	SetRotation(180 - orientation);
+
+}
+void GameObject::LeftBounce() {
+	SetRotation(0 - orientation);
+
+}
+void GameObject::RightBounce() {
+	SetRotation(0 - orientation);
+
 }

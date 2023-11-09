@@ -9,7 +9,7 @@ int main()
     sf::RenderWindow window(sf::VideoMode(1280, 720), "SFML works!");
 
     GameObject brique(600, 500, 100, 100, 0, 0, 0, sf::Color::Red);
-    GameObject ball(600, 500, 100, 0, 0, 0, sf::Color::Blue);
+    GameObject ball(600, 500, 100, 45, 50, 0, sf::Color::Blue);
 
     /*GameObject up(600, 350, 100, 100, 0, 50, 0, sf::Color::Red);
     GameObject right(600, 350, 100, 100, 90, 50, 0, sf::Color::Blue);
@@ -30,15 +30,19 @@ int main()
             }
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
                 //up.Reset();
+                ball.UpBounce();
             }
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
                 //right.Reset();
+                ball.RightBounce();
             }
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
                 //down.Reset();
+                ball.DownBounce();
             }
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
                 //left.Reset();
+                ball.LeftBounce();
             }
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
                 brique.Reset();
