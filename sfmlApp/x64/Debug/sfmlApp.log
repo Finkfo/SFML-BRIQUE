@@ -1,31 +1,14 @@
-﻿  Ball.cpp
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.h(27,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::RectDesc' quand aucune variable n'est déclarée
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.h(34,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::CircleDesc' quand aucune variable n'est déclarée
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.h(59,2): error C2011: 'GameObject::CircleDesc' : redéfinition du type 'struct'
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.h(29,17): message : voir la déclaration de 'GameObject::CircleDesc'
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.h(66,2): error C2011: 'GameObject::RectDesc' : redéfinition du type 'struct'
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.h(17,17): message : voir la déclaration de 'GameObject::RectDesc'
-  Brick.cpp
-  GameObject.cpp
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.cpp(1,10): error C2006: '#include' : attendu "FILENAME" ou <FILENAME>
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.cpp(1,10): fatal  error C1083: Impossible d'ouvrir le fichier include : '' : No such file or directory
-  main.cpp
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.h(27,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::RectDesc' quand aucune variable n'est déclarée
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.h(34,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::CircleDesc' quand aucune variable n'est déclarée
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.h(59,2): error C2011: 'GameObject::CircleDesc' : redéfinition du type 'struct'
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.h(29,17): message : voir la déclaration de 'GameObject::CircleDesc'
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.h(66,2): error C2011: 'GameObject::RectDesc' : redéfinition du type 'struct'
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.h(17,17): message : voir la déclaration de 'GameObject::RectDesc'
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\main.cpp(11,28): error C2079: 'oDesc' utilise une struct de 'GameObject::CircleDesc' non défini
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\main.cpp(13,5): error C2146: erreur de syntaxe : absence de ';' avant l'identificateur 'GameObject'
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\main.cpp(13,16): error C2065: 'CircleDesc' : identificateur non déclaré
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\main.cpp(15,5): error C2146: erreur de syntaxe : absence de ';' avant l'identificateur 'GameObject'
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\main.cpp(15,21): error C2248: 'GameObject::GameObject' : impossible d'accéder à private membre déclaré(e) dans la classe 'GameObject'
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.h(54,2): message : voir la déclaration de 'GameObject::GameObject'
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.h(13,7): message : voir la déclaration de 'GameObject'
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\main.cpp(16,20): error C2248: 'GameObject::GameObject' : impossible d'accéder à private membre déclaré(e) dans la classe 'GameObject'
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.h(55,2): message : voir la déclaration de 'GameObject::GameObject'
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.h(13,7): message : voir la déclaration de 'GameObject'
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\main.cpp(23,5): error C2653: 'GameObjectGameObject' : n'est pas un nom de classe ni d'espace de noms
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\main.cpp(23,27): error C3861: 'CreateCircle' : identificateur introuvable
-  Génération de code en cours...
+﻿  main.cpp
+C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.h(48,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::RectDesc' quand aucune variable n'est déclarée
+C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.h(59,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::CircleDesc' quand aucune variable n'est déclarée
+C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\main.cpp(12,59): warning C4244: 'argument' : conversion de 'T' en 'unsigned int', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\main.cpp(12,49): warning C4244: 'argument' : conversion de 'T' en 'unsigned int', perte possible de données
+          with
+          [
+              T=float
+          ]
+  sfmlApp.vcxproj -> C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\x64\Debug\sfmlApp.exe

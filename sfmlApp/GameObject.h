@@ -12,26 +12,6 @@
 
 class GameObject
 {
-public:
-
-	typedef struct RectDesc
-	{
-		float x;
-		float y;
-		float w;
-		float h;
-		float orientation = 0;
-		float speed = 0;
-		float angularSpeed = 0;
-		sf::Color color = sf::Color::Red;
-	};
-
-	typedef struct CircleDesc 
-	{
-		float x;
-		float y;
-		float r;
-	};
 
 private:
 
@@ -50,26 +30,36 @@ private:
 	sf::Color color;
 	sf::Shape* graphic;
 
-	//std::vector<int> a = { (0,0,0) };
-	GameObject(float x, float y, float width, float height, float orientation, float speed, float angularSpeed = 0, sf::Color color = sf::Color::Red);
-	GameObject(float x, float y, float size, float orientation, float speed, float angularSpeed = 0, sf::Color color = sf::Color::Blue);
-public:
+	//std::vector<int> a = { (0,0,0) };public:
 
-	typedef struct CircleDesc
-	{
-		float x = 0;
-		float y = 0;
-		float r;
-	};
+
+public:
 
 	typedef struct RectDesc
 	{
 		float x;
 		float y;
-		float w;
-		float h;
+		float width;
+		float height;
+		float orientation = 0;
+		float speed = 0;
+		float angularSpeed = 0;
+		sf::Color color = sf::Color::Red;
 	};
 
+	typedef struct CircleDesc
+	{
+		float x;
+		float y;
+		float radius;
+		float orientation = 0;
+		float speed = 0;
+		float angularSpeed = 0;
+		sf::Color color = sf::Color::Blue;
+	};
+	//GameObject();
+	GameObject(RectDesc desc);
+	GameObject(CircleDesc desc);
 	~GameObject();
 
 	sf::Shape* GetRender();
@@ -80,7 +70,7 @@ public:
 	void Rotate(float deltaTime);
 	void SetRotation(float angle);
 	void HorizontalBounce();
-	void VerticaltBounce();
+	void VerticalBounce();
 	void Reset();
 };
 

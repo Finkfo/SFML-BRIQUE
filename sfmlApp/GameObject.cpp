@@ -1,43 +1,52 @@
-#include "GameObject.h"$
+#include "GameObject.h"
 
+//GameObject::GameObject() {
+//	this->origineX = 0;
+//	this->origineY = 0;
+//	this->width = 0;
+//	this->height = 0;
+//	this->orientation = 0;
+//	this->speed = 0;
+//	this->angularSpeed = 0;
+//	this->color = sf::Color::Green;
+//}
 
-
-GameObject::GameObject(float x, float y, float width, float height,float orientation, float speed, float angularSpeed, sf::Color color)
+GameObject::GameObject(RectDesc desc)
 {
-	this->origineX = x;
-	this->origineY = y;
-	this->width = width;
-	this->height = height;
-	this->orientation = orientation;
-	this->speed = speed;
-	this->angularSpeed = angularSpeed;
-	this->color = color;
+	this->origineX = desc.x;
+	this->origineY = desc.y;
+	this->width = desc.width;
+	this->height = desc.height;
+	this->orientation = desc.orientation;
+	this->speed = desc.speed;
+	this->angularSpeed = desc.angularSpeed;
+	this->color = desc.color;
 
 
 	graphic = new sf::RectangleShape(sf::Vector2f(width, height));
 	graphic->setOrigin(0.5 * width, 0.5 * height);
 	//std::cout << graphic->getOrigin().x << "; " << graphic->getOrigin().y << std::endl;
-	graphic->setPosition(x, y);
+	graphic->setPosition(origineX, origineY);
 	graphic->setFillColor(color);
 	SetRotation(orientation);
 
 }
 
-GameObject::GameObject(float x, float y, float size, float orientation, float speed, float angularSpeed, sf::Color color){
+GameObject::GameObject(CircleDesc desc){
 
-	this->origineX = x;
-	this->origineY = y;
-	this->width = size / 2;
-	this->height = size / 2;
-	this->orientation = orientation;
-	this->speed = speed;
-	this->angularSpeed = angularSpeed;
-	this->color = color;
+	this->origineX = desc.x;
+	this->origineY = desc.y;
+	this->width = desc.radius / 2;
+	this->height = desc.radius / 2;
+	this->orientation = desc.orientation;
+	this->speed = desc.speed;
+	this->angularSpeed = desc.angularSpeed;
+	this->color = desc.color;
 
 	graphic = new sf::CircleShape(width);
 	graphic->setOrigin(width, height);
 	//std::cout << graphic->getOrigin().x << "; " << graphic->getOrigin().y << std::endl;
-	graphic->setPosition(x, y);
+	graphic->setPosition(origineX, origineY);
 	graphic->setFillColor(color);
 	SetRotation(orientation);
 }
@@ -54,12 +63,12 @@ sf::Shape* GameObject::GetRender()
 
 void GameObject::Move(float deltaTime)
 {
-	sf::Vector2f oPosition = graphic->getPosition();
+	sf::Vector2f Position = graphic->getPosition();
 
-	oPosition.x = oPosition.x + direction.x * deltaTime * speed;
-	oPosition.y = oPosition.y + direction.y * deltaTime * speed;
+	Position.x = Position.x + direction.x * deltaTime * speed;
+	Position.y = Position.y + direction.y * deltaTime * speed;
 
-	graphic->setPosition(oPosition);
+	graphic->setPosition(Position);
 }
 
 void GameObject::Rotate(float deltaTime)
@@ -84,7 +93,7 @@ void GameObject::HorizontalBounce() {
 	SetRotation(180 - orientation);
 
 }
-void GameObject::VerticaltBounce() {
+void GameObject::VerticalBounce() {
 	SetRotation(0 - orientation);
 }
 

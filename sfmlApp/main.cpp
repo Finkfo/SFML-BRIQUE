@@ -1,26 +1,30 @@
 #include <SFML/Graphics.hpp>
 #include "GameObject.h"
+#include "Brick.h"
 #include <iostream>
 
 
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(1280, 720), "SFML works!");
+    sf::Vector2f screen = { 1280,720 };
 
-    GameObject::CircleDesc oDesc;
-    oDesc.r = 10
-    GameObject(CircleDesc)
+    sf::RenderWindow window(sf::VideoMode(screen.x, screen.y), "SFML works!");
 
-    GameObject brick(600, 500, 100, 100, 0, 0, 50);
-    GameObject ball(600, 500, 100, 70, 50, 0, sf::Color::Red);
+    GameObject::CircleDesc ballDesc = { 200, 200, 100.f };
+    GameObject::RectDesc testDesc = { 300,300,100.f,100.f };
+    GameObject::RectDesc brickDesc = { 100.f,100.f,100.f,100.f };
+
+
+    Brick test( testDesc, 1 );
+    GameObject brick(brickDesc);
+    GameObject ball(ballDesc);
 
     /*GameObject up(600, 350, 100, 100, 0, 50, 0, sf::Color::Red);
     GameObject right(600, 350, 100, 100, 90, 50, 0, sf::Color::Blue);
     GameObject down(600, 350, 100, 100, 180, 50, 0, sf::Color::Green);
     GameObject left(600, 350, 100, 100, 270, 50, 0, sf::Color::Magenta);*/
 
-    GameObjectGameObject::CreateCircle();
 
     sf::Clock clock;
     float deltaTime=0;
@@ -41,8 +45,8 @@ int main()
             }
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
                 //right.Reset();
-                ball.VerticaltBounce();
-                brick.VerticaltBounce();
+                ball.VerticalBounce();
+                brick.VerticalBounce();
             }
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
                 //down.Reset();
@@ -51,8 +55,8 @@ int main()
             }
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
                 //left.Reset();
-                ball.VerticaltBounce();
-                brick.VerticaltBounce();
+                ball.VerticalBounce();
+                brick.VerticalBounce();
             }
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
                 brick.Reset();
