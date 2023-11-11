@@ -1,4 +1,6 @@
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\Ball.cpp;C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\x64\Debug\Ball.obj
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\Brick.cpp;C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\x64\Debug\Brick.obj
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.cpp;C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\x64\Debug\GameObject.obj
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\main.cpp;C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\x64\Debug\main.obj
+D:\sfmlApp\sfmlApp\Ball.cpp;D:\sfmlApp\sfmlApp\x64\Debug\Ball.obj
+D:\sfmlApp\sfmlApp\Brick.cpp;D:\sfmlApp\sfmlApp\x64\Debug\Brick.obj
+D:\sfmlApp\sfmlApp\Canon.cpp;D:\sfmlApp\sfmlApp\x64\Debug\Canon.obj
+D:\sfmlApp\sfmlApp\GameObject.cpp;D:\sfmlApp\sfmlApp\x64\Debug\GameObject.obj
+D:\sfmlApp\sfmlApp\main.cpp;D:\sfmlApp\sfmlApp\x64\Debug\main.obj
+D:\sfmlApp\sfmlApp\Math.cpp;D:\sfmlApp\sfmlApp\x64\Debug\Math.obj

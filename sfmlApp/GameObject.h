@@ -20,6 +20,10 @@ private:
 
 	float width;
 	float height;
+
+	float ancrageX;
+	float ancrageY;
+
 	float speed;
 	float angularSpeed;
 
@@ -37,10 +41,12 @@ public:
 
 	typedef struct RectDesc
 	{
-		float x;
-		float y;
+		float origineX;
+		float origineY;
 		float width;
 		float height;
+		float ancrageX = width / 2;
+		float ancrageY = height / 2;
 		float orientation = 0;
 		float speed = 0;
 		float angularSpeed = 0;
@@ -49,9 +55,11 @@ public:
 
 	typedef struct CircleDesc
 	{
-		float x;
-		float y;
+		float origineX;
+		float origineY;
 		float radius;
+		float ancrageX = radius / 2;
+		float ancrageY = radius / 2;
 		float orientation = 0;
 		float speed = 0;
 		float angularSpeed = 0;
@@ -71,6 +79,7 @@ public:
 	void SetRotation(float angle);
 	void HorizontalBounce();
 	void VerticalBounce();
+	sf::Vector2f GetPosition();
 	void Reset();
 };
 

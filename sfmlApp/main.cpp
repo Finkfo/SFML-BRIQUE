@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
-#include "GameObject.h"
 #include "Brick.h"
+#include "Ball.h"
+#include "Canon.h"
 #include <iostream>
 
 
@@ -11,19 +12,13 @@ int main()
 
     sf::RenderWindow window(sf::VideoMode(screen.x, screen.y), "SFML works!");
 
-    GameObject::CircleDesc ballDesc = { 200, 200, 100.f };
-    GameObject::RectDesc testDesc = { 300,300,100.f,100.f };
+    GameObject::CircleDesc ballDesc = { 200, 200, 20,10,10,30,0,0,sf::Color::White };
     GameObject::RectDesc brickDesc = { 100.f,100.f,100.f,100.f };
+    GameObject::RectDesc canonDesc = { screen.x*0.5,700,100.f,200,50,200 };
 
-
-    Brick test( testDesc, 1 );
-    GameObject brick(brickDesc);
-    GameObject ball(ballDesc);
-
-    /*GameObject up(600, 350, 100, 100, 0, 50, 0, sf::Color::Red);
-    GameObject right(600, 350, 100, 100, 90, 50, 0, sf::Color::Blue);
-    GameObject down(600, 350, 100, 100, 180, 50, 0, sf::Color::Green);
-    GameObject left(600, 350, 100, 100, 270, 50, 0, sf::Color::Magenta);*/
+    Brick brick( brickDesc, 10 );
+    Ball ball(ballDesc);
+    Canon canon(canonDesc);
 
 
     sf::Clock clock;
@@ -38,63 +33,49 @@ int main()
             if (event.type == sf::Event::Closed) {
                 window.close();
             }
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::H)) {
+                brick.LostLife();
+            }
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
-                //up.Reset();
                 ball.HorizontalBounce();
                 brick.HorizontalBounce();
+                canon.SetRotation(0);
             }
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-                //right.Reset();
                 ball.VerticalBounce();
                 brick.VerticalBounce();
+                canon.SetRotation(45);
             }
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
-                //down.Reset();
                 ball.HorizontalBounce();
                 brick.HorizontalBounce();
             }
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-                //left.Reset();
                 ball.VerticalBounce();
                 brick.VerticalBounce();
+                canon.SetRotation(-45);
             }
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
                 brick.Reset();
                 ball.Reset();
 
-                /*up.Reset();
-                right.Reset();
-                down.Reset();
-                left.Reset();*/
             }
         }
 
         //Applique le mouvement angulaire
         ball.Rotate(deltaTime);
         brick.Rotate(deltaTime);
-        /*up.Rotate(deltaTime);
-        right.Rotate(deltaTime);
-        down.Rotate(deltaTime);
-        left.Rotate(deltaTime);*/
+        canon.Follow(window.getPosition());
 
         //Applique le déplacement
         ball.Move(deltaTime);
         brick.Move(deltaTime);
 
-        /*up.Move(deltaTime);
-        right.Move(deltaTime);
-        down.Move(deltaTime);
-        left.Move(deltaTime);*/
-
         //Affichage
         window.clear();
         window.draw(*ball.GetRender());
         window.draw(*brick.GetRender());
-
-       /*window.draw(*up.GetRender());
-        window.draw(*right.GetRender());
-        window.draw(*down.GetRender());
-        window.draw(*left.GetRender());*/
+        window.draw(*canon.GetRender());
         window.display();
 
         //tempas d'un tour de boucle

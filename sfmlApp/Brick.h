@@ -7,7 +7,9 @@ private:
 	int life;
 
 public:
-	Brick(const GameObject::RectDesc& oDesc, int life);
+	Brick(const GameObject::RectDesc desc, int life);
 	~Brick();
+
+	void LostLife();
 
 };
