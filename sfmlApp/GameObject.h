@@ -80,6 +80,8 @@ public:
 	void HorizontalBounce();
 	void VerticalBounce();
 	sf::Vector2f GetPosition();
+	float GetOrientation();
+	sf::Vector2f GetSize();
 	void Reset();
 };
 

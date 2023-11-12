@@ -105,6 +105,14 @@ sf::Vector2f GameObject::GetPosition(){
 	sf::Vector2f position = graphic->getPosition();
 	return position;
 }
+float GameObject::GetOrientation() {
+	float orientation = this->orientation;
+	return orientation;
+}
+sf::Vector2f GameObject::GetSize() {
+	sf::Vector2f size = { width,height };
+	return size;
+}
 
 void GameObject::Reset()
 {

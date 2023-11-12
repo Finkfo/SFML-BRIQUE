@@ -24,8 +24,9 @@ void Canon::Follow(sf::Vector2i window) {
 
 
 
-
-	GameObject::SetRotation(angle);
+	if (mouse.y < canon.y) {
+		GameObject::SetRotation(angle);
+	}
 }
 /*Calcul angle canon = angle entre vecteur x(1,0) et vecteur souris = (xsouris-xcanon,ysouris-ycanon)
 * angle entre vecteur = acos(<u°v>/(module(u)*module(v)))
