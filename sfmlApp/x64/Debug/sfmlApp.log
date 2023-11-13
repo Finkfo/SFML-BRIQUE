@@ -1,14 +1,14 @@
 ﻿  GameObject.cpp
-C:\Users\valen\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.cpp(16,38): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
-C:\Users\valen\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.cpp(16,25): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
-C:\Users\valen\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.cpp(73,24): warning C4244: '=' : conversion de 'double' en 'T', perte possible de données
+C:\Users\vvallee\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.cpp(17,38): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+C:\Users\vvallee\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.cpp(17,25): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+C:\Users\vvallee\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.cpp(77,24): warning C4244: '=' : conversion de 'double' en 'T', perte possible de données
           with
           [
               T=float
           ]
-C:\Users\valen\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.cpp(74,19): warning C4244: '=' : conversion de 'double' en 'T', perte possible de données
+C:\Users\vvallee\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.cpp(78,19): warning C4244: '=' : conversion de 'double' en 'T', perte possible de données
           with
           [
               T=float
           ]
-  sfmlApp.vcxproj -> C:\Users\valen\Documents\GitHub\SFML-BRIQUE\x64\Debug\sfmlApp.exe
+  sfmlApp.vcxproj -> C:\Users\vvallee\Documents\GitHub\SFML-BRIQUE\x64\Debug\sfmlApp.exe

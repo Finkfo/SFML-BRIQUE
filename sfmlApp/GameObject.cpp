@@ -22,12 +22,12 @@ GameObject::GameObject(float x, float y, float width, float height, float orient
 
 }
 
-GameObject::GameObject(float x, float y, float size, float orientation, float speed, float angularSpeed, sf::Color color) {
+GameObject::GameObject(float x, float y, float diameter, float orientation, float speed, float angularSpeed, sf::Color color) {
 
 	this->origineX = x;
 	this->origineY = y;
-	this->width = size / 2;
-	this->height = size / 2;
+	this->width = diameter / 2;
+	this->height = diameter / 2;
 	this->orientation = orientation;
 	this->speed = speed;
 	this->angularSpeed = angularSpeed;
@@ -35,7 +35,9 @@ GameObject::GameObject(float x, float y, float size, float orientation, float sp
 	this->wasCollidingLastFrame = false;
 
 	graphic = new sf::CircleShape(width);
+	hitboxGraphic =  sf::RectangleShape(sf::Vector2f(width, height));
 	graphic->setOrigin(width, height);
+	/*hitboxGraphic->setOrigin(width, height);*/
 	//std::cout << graphic->getOrigin().x << "; " << graphic->getOrigin().y << std::endl;
 	graphic->setPosition(x, y);
 	graphic->setFillColor(color);
@@ -192,7 +194,7 @@ bool GameObject::CheckAABBCollision(const GameObject* go1, const GameObject* go2
 	float bottom1 = pos1.y + height1 / 2;
 
 	float left2 = pos2.x - width2 / 2;
-	float right2 = pos2.x + width2 / 2;
+	float right2 = pos2.x + width2 / 2; 
 	float top2 = pos2.y - height2 / 2;
 	float bottom2 = pos2.y + height2 / 2;
 
@@ -202,13 +204,16 @@ bool GameObject::CheckAABBCollision(const GameObject* go1, const GameObject* go2
 
 // Méthodes virtuelles à implémenter dans les classes filles
 void GameObject::OnCollisionEnter() {
+	std::cout  << "Entrer en collision" << std::endl;
 	// Logique pour lorsqu'une collision commence
 }
 
 void GameObject::OnCollisionStay() {
+	std::cout << " Toujours en collision" << std::endl;
 	// Logique pour lorsqu'une collision persiste
 }
 
 void GameObject::OnCollisionExit() {
+	std::cout << "Sortir de la collision" << std::endl;
 	// Logique pour lorsqu'une collision se termine
 }

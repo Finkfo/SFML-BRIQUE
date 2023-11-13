@@ -9,8 +9,8 @@ int main()
     sf::Vector2f screen(1280, 720);
     sf::RenderWindow window(sf::VideoMode(screen.x, screen.y), "SFML works!");
 
-    GameObject brick(700, 400, 100, 100, 0, 0, 0, sf::Color::Red);
-    GameObject ball(600, 500, 100, 70, 150, 0, sf::Color::Blue);
+    GameObject brick(800, 350, 100, 100, 0, 0, 0, sf::Color::Red);
+    GameObject ball(600, 500, 100, 70, 25, 0, sf::Color::Blue);
 
     sf::Clock clock;
     float deltaTime = 0;
@@ -53,7 +53,8 @@ int main()
         ball.Move(deltaTime);
         brick.Move(deltaTime);
         ball.CollisionWindow(screen);
-        ball.CollisionObject(brick);
+       /* ball.CollisionObject(brick);*/
+        ball.CheckCollisions(brick);
 
         //Affichage
         window.clear();

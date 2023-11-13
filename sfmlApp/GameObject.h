@@ -29,13 +29,16 @@ private:
 	sf::Vector2f direction = { 0,0 };
 	//std::vector<float> direction = { 0,0 };
 
+	sf::RectangleShape hitbox; // Hitbox pour la visualisation
+
 	sf::Color color;
 	sf::Shape* graphic;
+	sf::RectangleShape hitboxGraphic;
 
 
 public:
 	GameObject(float x, float y, float width, float height, float orientation, float speed, float angularSpeed, sf::Color color);
-	GameObject(float x, float y, float size, float orientation, float speed, float angularSpeed, sf::Color color);
+	GameObject(float x, float y, float diameter, float orientation, float speed, float angularSpeed, sf::Color color);
 	~GameObject();
 
 	sf::Shape* GetRender();
