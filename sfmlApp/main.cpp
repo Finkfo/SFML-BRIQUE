@@ -25,7 +25,7 @@ int main()
     {
         for (int i = 0; i < brickColumn; i++) {
             GameObject::RectDesc brickDesc = { i*104+marginBricks.x,j*54+marginBricks.y,brickSize.x,brickSize.y};
-            Brick brick(brickDesc, 1);
+            Brick brick(brickDesc, 10);
             bricks.push_back(brick);
         }
 
