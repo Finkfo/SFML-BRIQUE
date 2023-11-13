@@ -74,6 +74,7 @@ public:
 
 	
 
+	void Update(float deltaTime);
 	void Move(float deltaTime);
 	void Rotate(float deltaTime);
 	void SetRotation(float angle);

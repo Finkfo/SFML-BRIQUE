@@ -12,6 +12,7 @@ void Canon::Follow(sf::Vector2i window) {
 	sf::Vector2f canon = GetPosition();
 	sf::Vector2f mouseVect = { mouse.x - canon.x,mouse.y - canon.y };
 	sf::Vector2f xVect = { 1,0 };
+	//std::cout << mouse.x << "; " << mouse.y << std::endl;
 
 
 	float angle = acos(Scalaire(mouseVect, xVect)/(Module(mouseVect)*Module(xVect)));

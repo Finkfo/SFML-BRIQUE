@@ -15,3 +15,11 @@ void Brick::LostLife() {
 		std::cout << "dead" << std::endl;
 	}
 }
+
+bool Brick::IsDead() {
+	bool isDead = false;
+	if (life <= 0) {
+		isDead = true;
+	}
+	return isDead;
+}

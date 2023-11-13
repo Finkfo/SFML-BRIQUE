@@ -30,6 +30,8 @@ GameObject::GameObject(RectDesc desc)
 	//std::cout << graphic->getOrigin().x << "; " << graphic->getOrigin().y << std::endl;
 	graphic->setPosition(origineX, origineY);
 	graphic->setFillColor(color);
+	graphic->setOutlineThickness(4);
+	graphic->setOutlineColor(sf::Color::Black);
 	SetRotation(orientation);
 
 }
@@ -63,6 +65,12 @@ GameObject::~GameObject()
 sf::Shape* GameObject::GetRender()
 {
 	return graphic;
+}
+
+void GameObject::Update(float deltaTime) {
+	Move(deltaTime);
+	Rotate(deltaTime);
+
 }
 
 void GameObject::Move(float deltaTime)

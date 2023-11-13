@@ -11,5 +11,6 @@ public:
 	~Brick();
 
 	void LostLife();
+	bool IsDead();
 
 };
