@@ -24,8 +24,8 @@ int main()
     for (int j = 0; j < brickRow; j++)
     {
         for (int i = 0; i < brickColumn; i++) {
-            GameObject::RectDesc brickDesc = { i*100+marginBricks.x,j*50+marginBricks.y,brickSize.x,brickSize.y};
-            Brick brick(brickDesc, 10);
+            GameObject::RectDesc brickDesc = { i*104+marginBricks.x,j*54+marginBricks.y,brickSize.x,brickSize.y};
+            Brick brick(brickDesc, 1);
             bricks.push_back(brick);
         }
 
@@ -35,7 +35,6 @@ int main()
 
 
     sf::Clock clock;
-    sf::Clock ballTime;
     float deltaTime=0;
     float time = 0;
 
@@ -52,7 +51,7 @@ int main()
 
                     float ballOrientation = canon.GetOrientation();
                     sf::Vector2f ballPosition = PositionCalcul(ballOrientation, canon.GetPosition(), canon.GetSize());
-                    GameObject::CircleDesc ballDesc = { ballPosition.x, ballPosition.y, 20,10,10,ballOrientation,200,0,sf::Color::White };
+                    GameObject::CircleDesc ballDesc = { ballPosition.x, ballPosition.y, 20,10,10,ballOrientation,700,0,sf::Color::White };
 
                     Ball ball(ballDesc);
                     balls.push_back(ball);
@@ -92,6 +91,17 @@ int main()
             Ball* pBall = &balls[i];
 
             pBall->Update(deltaTime);
+            pBall->CollisionWindow(screen);
+            for (int i = 0; i < bricks.size(); ++i) {
+                if (pBall->CollisionObject(bricks[i])) {
+                    bricks[i].LostLife();
+                }
+                if (bricks[i].IsDead()) {
+                    bricks.erase(bricks.begin() + i);
+                    std::cout << bricks.size() << std::endl;
+                    i--;
+                }
+            }
 
             if (pBall->CheckOutbounds(pBall->GetPosition(), screen)) {
                 balls.erase(balls.begin() + i);

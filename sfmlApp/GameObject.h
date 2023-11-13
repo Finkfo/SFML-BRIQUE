@@ -15,6 +15,8 @@ class GameObject
 
 private:
 
+	bool wasCollidingLastFrame;
+
 	float origineX;
 	float origineY;
 
@@ -34,7 +36,6 @@ private:
 	sf::Color color;
 	sf::Shape* graphic;
 
-	//std::vector<int> a = { (0,0,0) };public:
 
 
 public:
@@ -65,7 +66,6 @@ public:
 		float angularSpeed = 0;
 		sf::Color color = sf::Color::Blue;
 	};
-	//GameObject();
 	GameObject(RectDesc desc);
 	GameObject(CircleDesc desc);
 	~GameObject();
@@ -84,6 +84,15 @@ public:
 	float GetOrientation();
 	sf::Vector2f GetSize();
 	void Reset();
+	void CollisionWindow(sf::Vector2f screen);
+	bool CollisionObject(GameObject& other);
+	bool CheckCollisions(const GameObject& goOther);
+
+	virtual void OnCollisionEnter();
+	virtual void OnCollisionStay();
+	virtual void OnCollisionExit();
+
+	bool CheckAABBCollision(const GameObject* go1, const GameObject* go2);
 };
 
 /*Calcul angle canon = angle entre vecteur x(1,0) et vecteur souris = (xsouris-xcanon,ysouris-ycanon)

@@ -23,3 +23,4 @@ bool Brick::IsDead() {
 	}
 	return isDead;
 }
+
