@@ -14,7 +14,7 @@ int main()
     int brickRow = 4;
     int brickColumn = 11;
     sf::Vector2f brickSize = { 100,50 };
-    sf::Vector2f marginBricks = { (screen.x - brickColumn * 100) / 2 + brickSize.x / 2, 50 + brickSize.y / 2 };
+    sf::Vector2f marginBricks = { (screen.x - brickColumn * 104) / 2 + brickSize.x / 2, 54 + brickSize.y / 2 };
 
 
 
@@ -55,6 +55,7 @@ int main()
 
                     Ball ball(ballDesc);
                     balls.push_back(ball);
+                    std::cout << canon.GetOrientation() << std::endl;
 
                 }
             }
@@ -82,6 +83,9 @@ int main()
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
             }
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+                if (balls.size() > 0) {
+                    balls.clear();
+                }
 
             }
         }

@@ -14,7 +14,6 @@ GameObject::GameObject(RectDesc desc)
 	this->speed = desc.speed;
 	this->angularSpeed = desc.angularSpeed;
 	this->color = desc.color;
-	this->wasCollidingLastFrame = false;
 
 
 	graphic = new sf::RectangleShape(sf::Vector2f(width, height));
@@ -22,7 +21,7 @@ GameObject::GameObject(RectDesc desc)
 	//std::cout << graphic->getOrigin().x << "; " << graphic->getOrigin().y << std::endl;
 	graphic->setPosition(origineX, origineY);
 	graphic->setFillColor(color);
-	graphic->setOutlineThickness(4);
+	graphic->setOutlineThickness(2);
 	graphic->setOutlineColor(sf::Color::Black);
 	SetRotation(orientation);
 
@@ -40,7 +39,6 @@ GameObject::GameObject(CircleDesc desc){
 	this->speed = desc.speed;
 	this->angularSpeed = desc.angularSpeed;
 	this->color = desc.color;
-	this->wasCollidingLastFrame = false;
 
 	graphic = new sf::CircleShape(width);
 	graphic->setOrigin(ancrageX, ancrageY);
@@ -95,6 +93,7 @@ void GameObject::SetRotation(float angle)
 
 void GameObject::HorizontalBounce() {
 	SetRotation(180 - orientation);
+	std::cout << "bounce" << std::endl;
 
 }
 
@@ -193,26 +192,32 @@ bool GameObject::CheckCollisions(const GameObject& goOther) {
 	bool firstCollision=false;
 	// Vérifier si les AABB sont en collision
 	bool isColliding = CheckAABBCollision(this, &goOther);
+	bool wasColliding = false;
+	for (int i = 0; i < collisions->size(); i++) {
+		if (collisions[i][0].graphic == this->graphic && collisions[i][0].origineX == this->origineX && collisions[i][0].origineY == this->origineY) {
+			std::cout << "collide" << std::endl;
+		}
+	}
 
 	// Si en collision
-	if (isColliding) {
-		if (!wasCollidingLastFrame) {
-			firstCollision = true;
-			OnCollisionEnter();
-		}
-		else {
-			OnCollisionStay();
-		}
-	}
-	// S'il n'y a pas de collision
-	else {
-		if (wasCollidingLastFrame) {
-			OnCollisionExit();
-		}
-	}
+	//if (isColliding) {
+	//	if (!wasCollidingLastFrame) {
+	//		firstCollision = true;
+	//		OnCollisionEnter();
+	//	}
+	//	else {
+	//		OnCollisionStay();
+	//	}
+	//}
+	//// S'il n'y a pas de collision
+	//else {
+	//	if (wasCollidingLastFrame) {
+	//		OnCollisionExit();
+	//	}
+	//}
 
 	// Mise à jour de l'état de collision pour le prochain tour de boucle
-	wasCollidingLastFrame = isColliding;
+	collisions->push_back(goOther);
 	return firstCollision;
 }
 
@@ -256,3 +261,4 @@ void GameObject::OnCollisionExit() {
 	std::cout << "Sortir de la collision" << std::endl;
 	// Logique pour lorsqu'une collision se termine
 }
+

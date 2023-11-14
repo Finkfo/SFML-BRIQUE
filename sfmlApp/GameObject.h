@@ -15,7 +15,7 @@ class GameObject
 
 private:
 
-	bool wasCollidingLastFrame;
+	std::vector<GameObject>* collisions;
 
 	float origineX;
 	float origineY;
@@ -88,11 +88,11 @@ public:
 	bool CollisionObject(GameObject& other);
 	bool CheckCollisions(const GameObject& goOther);
 
+	bool CheckAABBCollision(const GameObject* go1, const GameObject* go2);
 	virtual void OnCollisionEnter();
 	virtual void OnCollisionStay();
 	virtual void OnCollisionExit();
 
-	bool CheckAABBCollision(const GameObject* go1, const GameObject* go2);
 };
 
 /*Calcul angle canon = angle entre vecteur x(1,0) et vecteur souris = (xsouris-xcanon,ysouris-ycanon)
