@@ -1,14 +1,29 @@
+<<<<<<< Updated upstream
 ﻿  GameObject.cpp
 C:\Users\valen\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.cpp(13,38): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+=======
+﻿  GameManager.cpp
+C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.h(56,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::RectDesc' quand aucune variable n'est déclarée
+C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.h(69,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::CircleDesc' quand aucune variable n'est déclarée
+C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameManager.cpp(11,59): warning C4244: 'argument' : conversion de 'T' en 'unsigned int', perte possible de données
+>>>>>>> Stashed changes
           with
           [
               T=float
           ]
+<<<<<<< Updated upstream
 C:\Users\valen\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.cpp(13,31): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+=======
+C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameManager.cpp(11,49): warning C4244: 'argument' : conversion de 'T' en 'unsigned int', perte possible de données
+>>>>>>> Stashed changes
           with
           [
               T=float
           ]
+<<<<<<< Updated upstream
   main.cpp
   Génération de code en cours...
   sfmlApp.vcxproj -> C:\Users\valen\Documents\GitHub\SFML-BRIQUE\x64\Debug\sfmlApp.exe
+=======
+  sfmlApp.vcxproj -> C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\x64\Debug\sfmlApp.exe
+>>>>>>> Stashed changes

@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 #include <SFML/Graphics.hpp>
 #include "GameObject.h"
 
@@ -24,5 +25,14 @@ int main()
         window.display();
     }
 
+=======
+#include "GameManager.h"
+
+
+int main()
+{
+    GameManager game;
+    game.Launch();
+>>>>>>> Stashed changes
     return 0;
 }
