@@ -11,8 +11,4 @@ C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameManager.cpp(11,49): warn
           [
               T=float
           ]
-  main.cpp
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.h(55,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::RectDesc' quand aucune variable n'est déclarée
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.h(68,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::CircleDesc' quand aucune variable n'est déclarée
-  Génération de code en cours...
   sfmlApp.vcxproj -> C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\x64\Debug\sfmlApp.exe

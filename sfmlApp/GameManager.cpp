@@ -48,14 +48,14 @@ void GameManager::Launch() {
 
                 }
             }
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
+            /*if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
             }
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
             }
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
             }
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-            }
+            }*/
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
                 if (balls.size() > 0) {
                     balls.clear();
@@ -109,12 +109,23 @@ void GameManager::Launch() {
     }
 }
 
+
+
+
 void GameManager::CreateBricks() {
 
     for (int j = 0; j < brickRow; j++)
     {
         for (int i = 0; i < brickColumn; i++) {
-            GameObject::RectDesc brickDesc = { i * 104 + marginBricks.x,j * 54 + marginBricks.y,brickSize.x,brickSize.y };
+            sf::Vector2f brickOrigin = { i * 104 + marginBricks.x, j * 54 + marginBricks.y };
+            GameObject::RectDesc brickDesc = { brickOrigin.x,brickOrigin.y, brickSize.x,brickSize.y,brickSize.x / 2 ,brickSize.y / 2, 0, 0,0,  sf::Color(0,255 ,0) };
+
+            if (i * j * brickRow <= brickRow*brickColumn/2) {
+                brickDesc = { brickOrigin.x,brickOrigin.y, brickSize.x,brickSize.y,brickSize.x / 2 ,brickSize.y / 2, 0, 0,0,  sf::Color(255 ,0,0) };
+            }
+            else {
+                brickDesc = { brickOrigin.x,brickOrigin.y, brickSize.x,brickSize.y,brickSize.x / 2 ,brickSize.y / 2, 0, 0,0,  sf::Color(0,255 ,0) };
+            }
             Brick brick(brickDesc, 10);
             bricks.push_back(brick);
         }
