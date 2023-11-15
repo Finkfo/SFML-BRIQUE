@@ -113,49 +113,11 @@ void GameObject::CollisionWindow(sf::Vector2f screen)
 	}
 }
 
-//void GameObject::CollisionObject(GameObject& other) {
-//	sf::Vector2f distance = other.graphic->getPosition() - graphic->getPosition();
-//	float radius = this->width;
-//
-//	// Calculer la somme des demi-largeurs et demi-hauteurs
-//	float combinedHalfWidth = (radius + other.width) / 2.0f;
-//	float combinedHalfHeight = (radius + other.height) / 2.0f;
-//
-//	// Calculer la différence absolue entre les centres
-//	float offsetX = std::abs(distance.x) - combinedHalfWidth;
-//	float offsetY = std::abs(distance.y) - combinedHalfHeight;
-//
-//	// Vérifier s'il y a collision
-//	if (offsetX < 0 && offsetY < 0) {
-//
-//		if (offsetX > offsetY) {
-//			// Collision selon l'axe x
-//			if (distance.x > 0) {
-//				std::cout << "Collision sur la gauche" << std::endl;
-//				VerticalBounce();
-//			}
-//			else {
-//				std::cout << "Collision sur la droite" << std::endl;
-//				VerticalBounce();
-//			}
-//		}
-//		else {
-//			// Collision selon l'axe y
-//			if (distance.y > 0) {
-//				std::cout << "Collision en haut" << std::endl;
-//				HorizontalBounce();
-//			}
-//			else {
-//				std::cout << "Collision en bas" << std::endl;
-//				HorizontalBounce();
-//			}
-//		}
-//	}
-//}
+
 
 void GameObject::CheckCollisions(const GameObject& goOther) {
 	// Vérifier si les AABB sont en collision
-	bool isColliding = CheckAABBCollision(this, &goOther);
+	bool isColliding = CheckOBBCollision(&goOther);
 
 	// Si en collision
 	if (isColliding) {
@@ -175,37 +137,61 @@ void GameObject::CheckCollisions(const GameObject& goOther) {
 
 	// Mise à jour de l'état de collision pour le prochain tour de boucle
 	wasCollidingLastFrame = isColliding;
+
 }
 
-// Méthode pour vérifier la collision entre deux AABB
-bool GameObject::CheckAABBCollision(const GameObject* go1, const GameObject* go2) {
-	// Obtenir les positions et dimensions des GameObjects
-	sf::Vector2f pos1 = go1->graphic->getPosition();
-	sf::Vector2f pos2 = go2->graphic->getPosition();
-	float width1 = go1->width;
-	float height1 = go1->height;
-	float width2 = go2->width;
-	float height2 = go2->height;
+bool GameObject::CheckOBBCollision(const GameObject* other) {
+	sf::Vector2f ballCenter = this->graphic->getPosition();
+	float ballRadius = this->width;
 
-	// Calculer les bornes des GameObjects
-	float left1 = pos1.x - width1 / 2;
-	float right1 = pos1.x + width1 / 2;
-	float top1 = pos1.y - height1 / 2;
-	float bottom1 = pos1.y + height1 / 2;
+	sf::Vector2f brickCenter = other->graphic->getPosition();
+	float brickHalfWidth = other->width / 2;
+	float brickHalfHeight = other->height / 2;
 
-	float left2 = pos2.x - width2 / 2;
-	float right2 = pos2.x + width2 / 2; 
-	float top2 = pos2.y - height2 / 2;
-	float bottom2 = pos2.y + height2 / 2;
+	// Trouve le point le plus proche sur le rectangle de la brique au centre de la balle
+	float closestX = std::max(brickCenter.x - brickHalfWidth, std::min(ballCenter.x, brickCenter.x + brickHalfWidth));
+	float closestY = std::max(brickCenter.y - brickHalfHeight, std::min(ballCenter.y, brickCenter.y + brickHalfHeight));
 
-	// Vérifier si les AABB se chevauchent sur les deux axes
-	return (left1 < right2 && right1 > left2 && top1 < bottom2 && bottom1 > top2);
+	// Calculer la distance entre ce point et le centre de la balle
+	float distanceX = ballCenter.x - closestX;
+	float distanceY = ballCenter.y - closestY;
+
+	// Si la distance est inférieure au rayon de la balle il y a une collision
+	if ((distanceX * distanceX + distanceY * distanceY) < (ballRadius * ballRadius)) {
+
+
+		// Déterminer la direction de rebond
+		if (std::abs(distanceX) > std::abs(distanceY)) {
+
+			// Collision principalement sur l'axe Vertical
+			this ->collisionDir = "Vertical";
+		}
+		else {
+
+			// Collision principalement sur l'axe Horizontal
+			this ->collisionDir = "Horizontal";
+		}
+		// Collision détectée
+		return true;
+
+	}
+	else {
+		// Pas de collision
+		return false;
+		this ->collisionDir = "None";
+	}
 }
 
 // Méthodes virtuelles à implémenter dans les classes filles
 void GameObject::OnCollisionEnter() {
 	std::cout  << "Entrer en collision" << std::endl;
-	// Logique pour lorsqu'une collision commence
+	if (this->collisionDir == "Vertical") {
+			VerticalBounce();
+		}
+	else if (this->collisionDir == "Horizontal") {
+			HorizontalBounce();
+		}
+	 
 }
 
 void GameObject::OnCollisionStay() {

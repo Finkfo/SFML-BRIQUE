@@ -35,6 +35,7 @@ private:
 	sf::Shape* graphic;
 	sf::RectangleShape hitboxGraphic;
 
+	std::string collisionDir;
 
 public:
 	GameObject(float x, float y, float width, float height, float orientation, float speed, float angularSpeed, sf::Color color);
@@ -52,14 +53,17 @@ public:
 	void VerticalBounce();
 	void Reset();
 	void CollisionWindow(sf::Vector2f screen);
-	//void CollisionObject(GameObject& other);
+
 	void CheckCollisions(const GameObject& goOther);
+
+	bool CheckOBBCollision(const GameObject* other);
+
+	//bool CheckAABBCollision(const GameObject* go1, const GameObject* go2);
 
 	virtual void OnCollisionEnter();
 	virtual void OnCollisionStay();
 	virtual void OnCollisionExit();
 
-	bool CheckAABBCollision(const GameObject* go1, const GameObject* go2);
 
 };
 
