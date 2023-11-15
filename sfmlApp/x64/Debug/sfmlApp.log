@@ -1,32 +1,12 @@
-﻿  Ball.cpp
+﻿  GameManager.cpp
 C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.h(55,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::RectDesc' quand aucune variable n'est déclarée
 C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.h(68,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::CircleDesc' quand aucune variable n'est déclarée
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\Ball.cpp(23,24): warning C4244: '=' : conversion de 'double' en 'T', perte possible de données
+C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameManager.cpp(11,59): warning C4244: 'argument' : conversion de 'T' en 'unsigned int', perte possible de données
           with
           [
               T=float
           ]
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\Ball.cpp(24,24): warning C4244: '=' : conversion de 'double' en 'T', perte possible de données
-          with
-          [
-              T=float
-          ]
-  Brick.cpp
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.h(55,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::RectDesc' quand aucune variable n'est déclarée
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.h(68,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::CircleDesc' quand aucune variable n'est déclarée
-  Canon.cpp
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.h(55,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::RectDesc' quand aucune variable n'est déclarée
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.h(68,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::CircleDesc' quand aucune variable n'est déclarée
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\Canon.cpp(24,12): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
-  GameObject.cpp
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.h(55,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::RectDesc' quand aucune variable n'est déclarée
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.h(68,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::CircleDesc' quand aucune variable n'est déclarée
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.cpp(89,24): warning C4244: '=' : conversion de 'double' en 'T', perte possible de données
-          with
-          [
-              T=float
-          ]
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.cpp(90,19): warning C4244: '=' : conversion de 'double' en 'T', perte possible de données
+C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameManager.cpp(11,49): warning C4244: 'argument' : conversion de 'T' en 'unsigned int', perte possible de données
           with
           [
               T=float
@@ -34,17 +14,5 @@ C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.cpp(90,19): warni
   main.cpp
 C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.h(55,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::RectDesc' quand aucune variable n'est déclarée
 C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.h(68,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::CircleDesc' quand aucune variable n'est déclarée
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\main.cpp(21,59): warning C4244: 'argument' : conversion de 'T' en 'unsigned int', perte possible de données
-          with
-          [
-              T=float
-          ]
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\main.cpp(21,49): warning C4244: 'argument' : conversion de 'T' en 'unsigned int', perte possible de données
-          with
-          [
-              T=float
-          ]
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\main.cpp(23,48): warning C4838: la conversion de 'double' en 'float' requiert une conversion restrictive
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\main.cpp(23,48): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
   Génération de code en cours...
   sfmlApp.vcxproj -> C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\x64\Debug\sfmlApp.exe

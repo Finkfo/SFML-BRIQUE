@@ -66,6 +66,7 @@ void GameObject::Update(float deltaTime) {
 
 void GameObject::Move(float deltaTime)
 {
+
 	sf::Vector2f Position = graphic->getPosition();
 
 	Position.x = Position.x + direction.x * deltaTime * speed;
@@ -102,7 +103,7 @@ void GameObject::VerticalBounce() {
 	std::cout << "bounce" << std::endl;
 }
 
-sf::Vector2f GameObject::GetPosition(){
+sf::Vector2f GameObject::GetPosition() {
 	sf::Vector2f position = graphic->getPosition();
 	return position;
 }
@@ -160,7 +161,7 @@ bool GameObject::CollisionObject(GameObject& other) {
 
 	if (CheckCollisions(other)) {
 		collide = true;
-	/*if (offsetX < 0 && offsetY < 0) {*/
+		/*if (offsetX < 0 && offsetY < 0) {*/
 
 		if (offsetX > offsetY) {
 			// Collision selon l'axe x
@@ -189,36 +190,29 @@ bool GameObject::CollisionObject(GameObject& other) {
 }
 
 bool GameObject::CheckCollisions(const GameObject& goOther) {
-	bool firstCollision=false;
+	// Vérifier si les AABB sont en collision
 	// Vérifier si les AABB sont en collision
 	bool isColliding = CheckAABBCollision(this, &goOther);
-	bool wasColliding = false;
-	for (int i = 0; i < collisions->size(); i++) {
-		if (collisions[i][0].graphic == this->graphic && collisions[i][0].origineX == this->origineX && collisions[i][0].origineY == this->origineY) {
-			std::cout << "collide" << std::endl;
+
+	// Si en collision
+	if (isColliding) {
+		if (!wasColliding) {
+			OnCollisionEnter();
+		}
+		else {
+			OnCollisionStay();
+		}
+	}
+	// S'il n'y a pas de collision
+	else {
+		if (wasColliding) {
+			OnCollisionExit();
 		}
 	}
 
-	// Si en collision
-	//if (isColliding) {
-	//	if (!wasCollidingLastFrame) {
-	//		firstCollision = true;
-	//		OnCollisionEnter();
-	//	}
-	//	else {
-	//		OnCollisionStay();
-	//	}
-	//}
-	//// S'il n'y a pas de collision
-	//else {
-	//	if (wasCollidingLastFrame) {
-	//		OnCollisionExit();
-	//	}
-	//}
-
 	// Mise à jour de l'état de collision pour le prochain tour de boucle
-	collisions->push_back(goOther);
-	return firstCollision;
+	wasColliding = isColliding;
+	return wasColliding;
 }
 
 // Méthode pour vérifier la collision entre deux AABB
@@ -261,4 +255,3 @@ void GameObject::OnCollisionExit() {
 	std::cout << "Sortir de la collision" << std::endl;
 	// Logique pour lorsqu'une collision se termine
 }
-

@@ -16,6 +16,7 @@ class GameObject
 private:
 
 	std::vector<GameObject>* collisions;
+	bool wasColliding = false;
 
 	float origineX;
 	float origineY;
@@ -35,7 +36,6 @@ private:
 
 	sf::Color color;
 	sf::Shape* graphic;
-
 
 
 public:
