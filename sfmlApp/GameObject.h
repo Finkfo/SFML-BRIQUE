@@ -92,7 +92,9 @@ public:
 	
 	bool CheckCollisions(const GameObject& goOther);
 	bool CheckOBBCollision(const GameObject* other);
-
+	bool CheckRaquetteCollision(const GameObject& goOther);
+	bool CheckOBBRaquetteCollision(const GameObject* other);
+	
 	virtual void OnCollisionEnter();
 	virtual void OnCollisionStay();
 	virtual void OnCollisionExit();

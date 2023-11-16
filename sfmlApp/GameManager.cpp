@@ -73,7 +73,7 @@ void GameManager::Launch() {
             pBall->Update(deltaTime);
             //pBall->CollisionWindow(screen);
 
-            pBall->CheckCollisions(raquettes[0]);
+            pBall->CheckRaquetteCollision(raquettes[0]);
             for (int i = 0; i < windowBorders.size(); ++i) {
                 pBall->CheckCollisions(windowBorders[i]);
             }
@@ -145,7 +145,7 @@ void GameManager::CreateBricks() {
 void GameManager::CreateBalls() {
     float ballOrientation = canons[0].GetOrientation();
     sf::Vector2f ballPosition = PositionCalcul(ballOrientation, canons[0].GetPosition(), canons[0].GetSize());
-    GameObject::CircleDesc ballDesc = { ballPosition.x, ballPosition.y, 20,10,10,ballOrientation,1500,0,sf::Color::White };
+    GameObject::CircleDesc ballDesc = { ballPosition.x, ballPosition.y, 20,10,10,ballOrientation,500,0,sf::Color::White };
 
     Ball ball(ballDesc);
     balls.push_back(ball);
