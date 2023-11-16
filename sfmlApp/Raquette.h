@@ -9,6 +9,6 @@ public:
 	Raquette(const GameObject::RectDesc desc);
 	~Raquette();
 
-	void RaquetteFollow();
+	void RaquetteFollow(sf::Vector2i screen);
 
 };

@@ -3,6 +3,7 @@
 #include "Brick.h"
 #include "Ball.h"
 #include "Canon.h"
+#include "Raquette.h"
 #include <iostream>
 class GameManager
 {
@@ -13,6 +14,7 @@ private:
     std::vector<Ball> balls;
     std::vector<Brick> bricks;
     std::vector<Canon> canons;
+    std::vector<Raquette> raquettes;
     int brickRow = 4;
     int brickColumn = 11;
     sf::Vector2f brickSize = { 100,50 };
@@ -26,5 +28,6 @@ public:
     void CreateBalls();
     void CreateCanons();
     void CreateBorders();
+    void CreateRaquette();
 };
 
