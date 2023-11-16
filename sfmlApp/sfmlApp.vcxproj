@@ -139,25 +139,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-<<<<<<< Updated upstream
-=======
     <ClCompile Include="Ball.cpp" />
     <ClCompile Include="Brick.cpp" />
     <ClCompile Include="Canon.cpp" />
     <ClCompile Include="GameManager.cpp" />
->>>>>>> Stashed changes
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Math.cpp" />
+    <ClCompile Include="Raquette.cpp" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< Updated upstream
-=======
     <ClInclude Include="Ball.h" />
     <ClInclude Include="Brick.h" />
     <ClInclude Include="Canon.h" />
     <ClInclude Include="GameManager.h" />
->>>>>>> Stashed changes
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Math.h" />
+    <ClInclude Include="Raquette.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

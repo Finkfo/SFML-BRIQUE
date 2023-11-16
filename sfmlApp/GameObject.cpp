@@ -1,18 +1,51 @@
 #include "GameObject.h"
 
-GameObject::GameObject(float x, float y, float speedX, float speedY, int width, int height, sf::Color color)
-{
-	this->x = x;
-	this->y = y;
-	this->speedX = speedX;
-	this->speedY = speedY;
-	this->width = width;
-	this->height = height;
-	this->color = color;
-	graphic.setPosition(x, y);
-	graphic.setSize(sf::Vector2f(width, height));
-	graphic.setFillColor(color);
 
+
+GameObject::GameObject(RectDesc desc)
+{
+	this->origineX = desc.origineX;
+	this->origineY = desc.origineY;
+	this->width = desc.width;
+	this->height = desc.height;
+	this->ancrageX = desc.ancrageX;
+	this->ancrageY = desc.ancrageY;
+	this->orientation = desc.orientation;
+	this->speed = desc.speed;
+	this->angularSpeed = desc.angularSpeed;
+	this->color = desc.color;
+
+
+	graphic = new sf::RectangleShape(sf::Vector2f(width, height));
+	graphic->setOrigin(ancrageX, ancrageY);
+	//std::cout << graphic->getOrigin().x << "; " << graphic->getOrigin().y << std::endl;
+	graphic->setPosition(origineX, origineY);
+	graphic->setFillColor(color);
+	graphic->setOutlineThickness(2);
+	graphic->setOutlineColor(sf::Color::Black);
+	SetRotation(orientation);
+
+}
+
+GameObject::GameObject(CircleDesc desc){
+
+	this->origineX = desc.origineX;
+	this->origineY = desc.origineY;
+	this->width = desc.radius / 2;
+	this->height = desc.radius / 2;
+	this->ancrageX = desc.ancrageX;
+	this->ancrageY = desc.ancrageY;
+	this->orientation = desc.orientation;
+	this->speed = desc.speed;
+	this->angularSpeed = desc.angularSpeed;
+	this->color = desc.color;
+
+	graphic = new sf::CircleShape(width);
+	graphic->setOrigin(ancrageX, ancrageY);
+	//std::cout << graphic->getOrigin().x << "; " << graphic->getOrigin().y << std::endl;
+	graphic->setPosition(origineX, origineY);
+	graphic->setFillColor(color);
+	SetRotation(orientation);
 }
 
 GameObject::~GameObject()
@@ -20,19 +53,20 @@ GameObject::~GameObject()
 
 }
 
-sf::RectangleShape GameObject::GetRender()
+sf::Shape* GameObject::GetRender()
 {
 	return graphic;
 }
 
-void GameObject::Move()
-{
-<<<<<<< Updated upstream
-	x += speedX;
-	y += speedY;
-	graphic.setPosition(x, y);
+void GameObject::Update(float deltaTime) {
+	Move(deltaTime);
+	Rotate(deltaTime);
+
 }
-=======
+
+void GameObject::Move(float deltaTime)
+{
+
 	sf::Vector2f Position = graphic->getPosition();
 
 	Position.x = Position.x + direction.x * deltaTime * speed;
@@ -60,16 +94,13 @@ void GameObject::SetRotation(float angle)
 
 void GameObject::HorizontalBounce() {
 	SetRotation(180 - orientation);
-	std::cout << "bounce" << std::endl;
-
 }
 
 void GameObject::VerticalBounce() {
 	SetRotation(0 - orientation);
-	std::cout << "bounce" << std::endl;
 }
 
-sf::Vector2f GameObject::GetPosition(){
+sf::Vector2f GameObject::GetPosition() {
 	sf::Vector2f position = graphic->getPosition();
 	return position;
 }
@@ -102,114 +133,103 @@ void GameObject::CollisionWindow(sf::Vector2f screen)
 		position = graphic->getPosition();
 	}
 
-	if (position.y - radius <= 0) {
+	if (position.y - radius <= 0 ) {
 		firstCollision = true;
 		HorizontalBounce();
 		position = graphic->getPosition();
 	}
 }
 
-bool GameObject::CollisionObject(GameObject& other) {
-	bool collide = false;
-
-	sf::Vector2f distance = other.graphic->getPosition() - graphic->getPosition();
-	float radius = this->width;
-
-	// Calculer la somme des demi-largeurs et demi-hauteurs
-	float combinedHalfWidth = (radius + other.width) / 2.0f;
-	float combinedHalfHeight = (radius + other.height) / 2.0f;
-
-	// Calculer la différence absolue entre les centres
-	float offsetX = std::abs(distance.x) - combinedHalfWidth;
-	float offsetY = std::abs(distance.y) - combinedHalfHeight;
-
-	// Vérifier s'il y a collision
-
-	if (CheckCollisions(other)) {
-		collide = true;
-	/*if (offsetX < 0 && offsetY < 0) {*/
-
-		if (offsetX > offsetY) {
-			// Collision selon l'axe x
-			if (distance.x > 0) {
-				std::cout << "Collision sur la gauche" << std::endl;
-				VerticalBounce();
-			}
-			else {
-				std::cout << "Collision sur la droite" << std::endl;
-				VerticalBounce();
-			}
-		}
-		else {
-			// Collision selon l'axe y
-			if (distance.y > 0) {
-				std::cout << "Collision en haut" << std::endl;
-				HorizontalBounce();
-			}
-			else {
-				std::cout << "Collision en bas" << std::endl;
-				HorizontalBounce();
-			}
-		}
-	}
-	return collide;
-}
-
 bool GameObject::CheckCollisions(const GameObject& goOther) {
-	// Vérifier si les AABB sont en collision
-	// Vérifier si les AABB sont en collision
-	bool isColliding = CheckAABBCollision(this, &goOther);
+
+	bool isColliding = CheckOBBCollision(&goOther);
 
 	// Si en collision
 	if (isColliding) {
-		if (!wasColliding) {
+		if (!wasCollidingLastFrame) {
 			OnCollisionEnter();
 		}
 		else {
 			OnCollisionStay();
 		}
+		wasCollidingLastFrame = isColliding;
+		return true;
 	}
 	// S'il n'y a pas de collision
 	else {
-		if (wasColliding) {
+		if (wasCollidingLastFrame) {
 			OnCollisionExit();
+			wasCollidingLastFrame = isColliding;
+			return false;
 		}
 	}
-
-	// Mise à jour de l'état de collision pour le prochain tour de boucle
-	wasColliding = isColliding;
-	return wasColliding;
 }
 
-// Méthode pour vérifier la collision entre deux AABB
-bool GameObject::CheckAABBCollision(const GameObject* go1, const GameObject* go2) {
-	// Obtenir les positions et dimensions des GameObjects
-	sf::Vector2f pos1 = go1->graphic->getPosition();
-	sf::Vector2f pos2 = go2->graphic->getPosition();
-	float width1 = go1->width;
-	float height1 = go1->height;
-	float width2 = go2->width;
-	float height2 = go2->height;
+bool GameObject::CheckOBBCollision(const GameObject* other) {
+	sf::Vector2f ballCenter = this->graphic->getPosition();
+	float ballRadius = this->width;
 
-	// Calculer les bornes des GameObjects
-	float left1 = pos1.x - width1 / 2;
-	float right1 = pos1.x + width1 / 2;
-	float top1 = pos1.y - height1 / 2;
-	float bottom1 = pos1.y + height1 / 2;
+	sf::Vector2f brickCenter = other->graphic->getPosition();
+	float brickHalfWidth = other->width / 2;
+	float brickHalfHeight = other->height / 2;
 
-	float left2 = pos2.x - width2 / 2;
-	float right2 = pos2.x + width2 / 2;
-	float top2 = pos2.y - height2 / 2;
-	float bottom2 = pos2.y + height2 / 2;
+	// Trouve le point le plus proche sur le rectangle de la brique au centre de la balle
+	float closestX = std::max(brickCenter.x - brickHalfWidth, std::min(ballCenter.x, brickCenter.x + brickHalfWidth));
+	float closestY = std::max(brickCenter.y - brickHalfHeight, std::min(ballCenter.y, brickCenter.y + brickHalfHeight));
 
-	// Vérifier si les AABB se chevauchent sur les deux axes
-	return (left1 < right2 && right1 > left2 && top1 < bottom2 && bottom1 > top2);
+	// Calculer la distance entre ce point et le centre de la balle
+	float distanceX = ballCenter.x - closestX;
+	float distanceY = ballCenter.y - closestY;
+
+	// Si la distance est inférieure au rayon de la balle il y a une collision
+	if ((distanceX * distanceX + distanceY * distanceY) < (ballRadius * ballRadius)) {
+		// Déterminer la face spécifique de la collision
+		if (std::abs(distanceX) > std::abs(distanceY)) {
+			// Collision plus proche sur l'axe vertical
+			if (distanceX > 0) {
+				this->collisionFace = "Gauche";
+				this->collisionDir = "Vertical";
+			}
+			else {
+				this->collisionFace = "Droite";
+				this->collisionDir = "Vertical";
+			}
+		}
+		else {
+			// Collision plus proche sur l'axe horizontal
+			if (distanceY > 0) {
+				this->collisionFace = "Haut";
+				this->collisionDir = "Horizontal";
+			}
+			else {
+				this->collisionFace = "Bas";
+				this->collisionDir = "Horizontal";
+			}
+		}
+		// Collision détectée
+		return true;
+	}
+	else {
+		// Pas de collision
+		this->collisionDir = "None";
+		return false;
+	}
 }
 
 // Méthodes virtuelles à implémenter dans les classes filles
 void GameObject::OnCollisionEnter() {
 	std::cout << "Entrer en collision" << std::endl;
-	// Logique pour lorsqu'une collision commence
+	
+
+	if (this->collisionDir == "Vertical" && this->lastFace != this->collisionFace ) {
+		VerticalBounce();
+		this->lastFace = this->collisionFace;
+	}
+	else if (this->collisionDir == "Horizontal" && this->lastFace != this->collisionFace) {
+		HorizontalBounce();
+		this->lastFace = this->collisionFace;
+	}
+
 }
 
 void GameObject::OnCollisionStay() {
@@ -222,4 +242,8 @@ void GameObject::OnCollisionExit() {
 	// Logique pour lorsqu'une collision se termine
 }
 
->>>>>>> Stashed changes
+
+
+void GameObject::SetPosition(sf::Vector2i position){
+	graphic->setPosition(position.x, position.y);
+}

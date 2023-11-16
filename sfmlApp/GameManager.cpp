@@ -12,6 +12,7 @@ void GameManager::Launch() {
     CreateBricks();
     //Ball ball(ballDesc);
     CreateCanons();
+    CreateBorders();
 
 
     sf::Clock clock;
@@ -27,7 +28,7 @@ void GameManager::Launch() {
                 window.close();
             }
             if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-                if (balls.size() < 1) {
+                if (balls.size() < 20) {
 
                     CreateBalls();
 
@@ -69,9 +70,13 @@ void GameManager::Launch() {
             Ball* pBall = &balls[i];
 
             pBall->Update(deltaTime);
-            pBall->CollisionWindow(screen);
+            //pBall->CollisionWindow(screen);
+
+            for (int i = 0; i < windowBorders.size(); ++i) {
+                pBall->CheckCollisions(windowBorders[i]);
+            }
             for (int i = 0; i < bricks.size(); ++i) {
-                if (pBall->CollisionObject(bricks[i])) {
+                if (pBall->CheckCollisions(bricks[i])) {
                     bricks[i].LostLife();
                 }
                 if (bricks[i].IsDead()) {
@@ -101,6 +106,10 @@ void GameManager::Launch() {
         for (int i = 0; i < bricks.size(); i++) {
             window.draw(*bricks[i].GetRender());
         }
+
+        for (int i = 0; i < windowBorders.size(); i++) {
+            window.draw(*windowBorders[i].GetRender());
+        }
         window.draw(*canons[0].GetRender());
         window.display();
 
@@ -110,11 +119,17 @@ void GameManager::Launch() {
 }
 
 void GameManager::CreateBricks() {
-
+    int brickNumber = brickColumn * brickRow;
     for (int j = 0; j < brickRow; j++)
     {
         for (int i = 0; i < brickColumn; i++) {
-            GameObject::RectDesc brickDesc = { i * 104 + marginBricks.x,j * 54 + marginBricks.y,brickSize.x,brickSize.y };
+            sf::Vector2f brickOrigin = { i * 104 + marginBricks.x, j * 54 + marginBricks.y };
+            float R = (j + i) > (brickNumber) ? 0 : (j + i) > (brickNumber / 3.5) ? 40 : (j + i) > (brickNumber / 4) ? 80 : (j + i) > (brickNumber / 4.25) ? 120 : (j + i) > (brickNumber / 4.5) ? 160 : (j + i) > (brickNumber / 5) ? 200 : (j + i) > (brickNumber / 6) ? 240 : 255;
+            float G = (j + i) < (brickNumber / 44) ? 0 : (j + i) < (brickNumber / 22) ? 40 : (j + i) < (brickNumber / 12) ? 80 : (j + i) < (brickNumber / 11) ? 120 : (j + i) < (brickNumber / 8) ? 160 : (j + i) < (brickNumber / 7) ? 200 : (j + i) < (brickNumber / 6) ? 240 : 255;
+            float B = 255;
+            GameObject::RectDesc brickDesc = { brickOrigin.x,brickOrigin.y, brickSize.x,brickSize.y,brickSize.x / 2 ,brickSize.y / 2, 0, 0,0,  sf::Color(R,G ,B) };
+
+
             Brick brick(brickDesc, 10);
             bricks.push_back(brick);
         }
@@ -137,4 +152,18 @@ void GameManager::CreateBalls() {
 void GameManager::CreateCanons() {
     Canon canon(canonDesc);
     canons.push_back(canon);
+}
+
+void GameManager::CreateBorders() {
+    GameObject::RectDesc windowBordersDescLeft = { -50,0,100,screen.y*2 };
+    GameObject windowBorderLeft(windowBordersDescLeft);
+    windowBorders.push_back(windowBorderLeft);
+
+    GameObject::RectDesc windowBordersDescUp = { 0,-50,screen.x*2,100 };
+    GameObject windowBorderUp(windowBordersDescUp);
+    windowBorders.push_back(windowBorderUp);
+
+    GameObject::RectDesc windowBordersDescRight = { screen.x+50,0,100,screen.y*2 };
+    GameObject windowBorderRight(windowBordersDescRight);
+    windowBorders.push_back(windowBorderRight);
 }
