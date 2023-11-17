@@ -1,29 +1,73 @@
-<<<<<<< Updated upstream
-﻿  GameObject.cpp
-C:\Users\valen\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.cpp(13,38): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
-=======
-﻿  GameManager.cpp
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.h(56,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::RectDesc' quand aucune variable n'est déclarée
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.h(69,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::CircleDesc' quand aucune variable n'est déclarée
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameManager.cpp(11,59): warning C4244: 'argument' : conversion de 'T' en 'unsigned int', perte possible de données
->>>>>>> Stashed changes
+﻿  Ball.cpp
+C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\GameObject.h(58,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::RectDesc' quand aucune variable n'est déclarée
+C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\GameObject.h(71,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::CircleDesc' quand aucune variable n'est déclarée
+C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\Ball.cpp(23,24): warning C4244: '=' : conversion de 'double' en 'T', perte possible de données
           with
           [
               T=float
           ]
-<<<<<<< Updated upstream
-C:\Users\valen\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.cpp(13,31): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
-=======
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameManager.cpp(11,49): warning C4244: 'argument' : conversion de 'T' en 'unsigned int', perte possible de données
->>>>>>> Stashed changes
+C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\Ball.cpp(24,24): warning C4244: '=' : conversion de 'double' en 'T', perte possible de données
           with
           [
               T=float
           ]
-<<<<<<< Updated upstream
+  Brick.cpp
+C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\GameObject.h(58,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::RectDesc' quand aucune variable n'est déclarée
+C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\GameObject.h(71,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::CircleDesc' quand aucune variable n'est déclarée
+  Canon.cpp
+C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\GameObject.h(58,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::RectDesc' quand aucune variable n'est déclarée
+C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\GameObject.h(71,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::CircleDesc' quand aucune variable n'est déclarée
+C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\Canon.cpp(24,12): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
+  GameManager.cpp
+C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\GameObject.h(58,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::RectDesc' quand aucune variable n'est déclarée
+C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\GameObject.h(71,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::CircleDesc' quand aucune variable n'est déclarée
+C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\GameManager.cpp(11,59): warning C4244: 'argument' : conversion de 'T' en 'unsigned int', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\GameManager.cpp(11,49): warning C4244: 'argument' : conversion de 'T' en 'unsigned int', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\GameManager.cpp(132,21): warning C4244: 'initialisation' : conversion de 'int' en 'float', perte possible de données
+C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\GameManager.cpp(133,21): warning C4244: 'initialisation' : conversion de 'int' en 'float', perte possible de données
+C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\GameManager.cpp(135,159): warning C4244: 'argument' : conversion de 'float' en 'sf::Uint8', perte possible de données
+C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\GameManager.cpp(135,156): warning C4244: 'argument' : conversion de 'float' en 'sf::Uint8', perte possible de données
+C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\GameManager.cpp(135,154): warning C4244: 'argument' : conversion de 'float' en 'sf::Uint8', perte possible de données
+  GameObject.cpp
+C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\GameObject.h(58,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::RectDesc' quand aucune variable n'est déclarée
+C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\GameObject.h(71,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::CircleDesc' quand aucune variable n'est déclarée
+C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\GameObject.cpp(90,24): warning C4244: '=' : conversion de 'double' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\GameObject.cpp(91,19): warning C4244: '=' : conversion de 'double' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\GameObject.cpp(326,43): warning C4244: 'argument' : conversion de 'T' en 'float', perte possible de données
+          with
+          [
+              T=int
+          ]
+C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\GameObject.cpp(326,31): warning C4244: 'argument' : conversion de 'T' en 'float', perte possible de données
+          with
+          [
+              T=int
+          ]
   main.cpp
+C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\GameObject.h(58,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::RectDesc' quand aucune variable n'est déclarée
+C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\GameObject.h(71,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::CircleDesc' quand aucune variable n'est déclarée
+  Math.cpp
+  Raquette.cpp
+C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\GameObject.h(58,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::RectDesc' quand aucune variable n'est déclarée
+C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\GameObject.h(71,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::CircleDesc' quand aucune variable n'est déclarée
   Génération de code en cours...
-  sfmlApp.vcxproj -> C:\Users\valen\Documents\GitHub\SFML-BRIQUE\x64\Debug\sfmlApp.exe
-=======
-  sfmlApp.vcxproj -> C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\x64\Debug\sfmlApp.exe
->>>>>>> Stashed changes
+C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\GameObject.cpp(190): warning C4715: 'GameObject::CheckRaquetteCollision' : les chemins de contrôle ne retournent pas tous une valeur
+C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\GameObject.cpp(166): warning C4715: 'GameObject::CheckCollisions' : les chemins de contrôle ne retournent pas tous une valeur
+  LINK : C:\Users\valen\Documents\SFML-BRIQUE\x64\Debug\sfmlApp.exe introuvable ou non généré par la dernière édition de liens incrémentielle ; édition de liens complète en cours
+  sfmlApp.vcxproj -> C:\Users\valen\Documents\SFML-BRIQUE\x64\Debug\sfmlApp.exe

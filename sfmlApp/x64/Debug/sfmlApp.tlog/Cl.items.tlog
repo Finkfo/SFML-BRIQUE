@@ -1,12 +1,8 @@
-<<<<<<< Updated upstream
-C:\Users\valen\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.cpp;C:\Users\valen\Documents\GitHub\SFML-BRIQUE\sfmlApp\x64\Debug\GameObject.obj
-C:\Users\valen\Documents\GitHub\SFML-BRIQUE\sfmlApp\main.cpp;C:\Users\valen\Documents\GitHub\SFML-BRIQUE\sfmlApp\x64\Debug\main.obj
-=======
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\Ball.cpp;C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\x64\Debug\Ball.obj
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\Brick.cpp;C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\x64\Debug\Brick.obj
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\Canon.cpp;C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\x64\Debug\Canon.obj
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameManager.cpp;C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\x64\Debug\GameManager.obj
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\GameObject.cpp;C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\x64\Debug\GameObject.obj
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\main.cpp;C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\x64\Debug\main.obj
-C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\Math.cpp;C:\Users\tboda\Documents\GitHub\SFML-BRIQUE\sfmlApp\x64\Debug\Math.obj
->>>>>>> Stashed changes
+C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\Ball.cpp;C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\x64\Debug\Ball.obj
+C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\Brick.cpp;C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\x64\Debug\Brick.obj
+C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\Canon.cpp;C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\x64\Debug\Canon.obj
+C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\GameManager.cpp;C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\x64\Debug\GameManager.obj
+C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\GameObject.cpp;C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\x64\Debug\GameObject.obj
+C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\main.cpp;C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\x64\Debug\main.obj
+C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\Math.cpp;C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\x64\Debug\Math.obj
+C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\Raquette.cpp;C:\Users\valen\Documents\SFML-BRIQUE\sfmlApp\x64\Debug\Raquette.obj
